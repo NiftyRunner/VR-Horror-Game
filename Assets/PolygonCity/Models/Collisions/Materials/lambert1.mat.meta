@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 70268ac3fadbdf84fb973b0a7268dbd7
+timeCreated: 1579747047
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 95214
+  packageName: POLYGON City - Low Poly 3D Art by Synty
+  packageVersion: 1.10.1
+  assetPath: Assets/PolygonCity/Models/Collisions/Materials/lambert1.mat
+  uploadId: 644118
