@@ -13,6 +13,7 @@ public class PuzzleHandler : MonoBehaviour
     [SerializeField] GameObject closeChest;
     [SerializeField] GameObject openChest;
     [SerializeField] ObjectiveManager manager;
+    [SerializeField] GameObject jumpScareTrigger;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class PuzzleHandler : MonoBehaviour
         if(pCount == 3)
         {
             SpawnKey();
+            jumpScareTrigger.SetActive(true);
         }
         if (isPuzzleGameComplete)
         {

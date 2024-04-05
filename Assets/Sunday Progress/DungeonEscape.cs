@@ -17,7 +17,8 @@ public class DungeonEscape : TaskBaseState
     {
         Debug.Log("dungeon State");
 
-        manager.dungeonGate.transform.position = new Vector3(69.7399979f, 1.26999998f, 28.4890003f);
+        manager.dungeonGate1.transform.rotation = Quaternion.Euler(0, 90, 120);
+        manager.dungeonGate2.transform.rotation = Quaternion.Euler(0, 90, -120);
 
         dungeonTextParent = GameObject.FindGameObjectWithTag("DungeonStateText");
         dungeonText = dungeonTextParent.GetComponent<TextMeshProUGUI>();

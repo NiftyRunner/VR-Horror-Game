@@ -5,7 +5,7 @@ using UnityEngine;
 public class DungeonHandler : MonoBehaviour
 {
     public bool isDungeonGameComplete;
-    [SerializeField] GameObject sphereTrap;
+    [SerializeField] GameObject jumpScareTrigger;
 
     void Start()
     {

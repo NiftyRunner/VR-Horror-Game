@@ -19,6 +19,14 @@ TagManager:
   - DungeonStateText
   - FinalStateText
   - CollectionObject
+  - Key
+  - Start
+  - Quit
+  - Menu
+  - Key1
+  - Key2
+  - Key3
+  - ghost
   layers:
   - Default
   - TransparentFX

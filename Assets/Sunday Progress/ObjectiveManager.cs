@@ -32,7 +32,8 @@ public class ObjectiveManager : MonoBehaviour
     public GameObject objectCollectionObjects;
     public GameObject puzzleGate;
     public float puzzleGateRotation = -90f;
-    public GameObject dungeonGate;
+    public GameObject dungeonGate1;
+    public GameObject dungeonGate2;
 
     private void Start()
     {
