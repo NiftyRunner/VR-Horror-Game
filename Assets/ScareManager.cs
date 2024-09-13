@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -15,7 +16,8 @@ public class ScareManager : MonoBehaviour
     [SerializeField] float range = 3f;
     [SerializeField] float sceneChangeTime = 15f;
     [SerializeField] TextMeshProUGUI deadText;
-    [SerializeField] TextMeshProUGUI collectionText;   
+    [SerializeField] TextMeshProUGUI collectionText;
+    [SerializeField] LayerMask groundLayerMask;
 
 
     Vector3 randomPoint;
@@ -37,6 +39,7 @@ public class ScareManager : MonoBehaviour
     {
         if (!timeSelected)
         {
+            Debug.Log("Time selected multiple");
             timeSelected = true;
             if(slider.value == 0)
             {
@@ -64,14 +67,17 @@ public class ScareManager : MonoBehaviour
         {
             randomPoint = Random.insideUnitSphere * range + player.position;
         }
+        //NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 100, groundLayerMask);
+        //randomPoint = new Vector3(hit.position.x, randomPoint.y, hit.position.z);
+
         Debug.Log("randPoint is " + randomPoint);
 
-        if (randomPoint.y > 0 && randomPoint.y < 10 && slider.value != 0)
+        if (randomPoint.y > 0 && randomPoint.y < 100 && slider.value != 0)
         {
             navGhost.transform.position = randomPoint;
             navGhost.SetActive(true);
         }
-        else if(randomPoint.y < 0 || randomPoint.y > 10 && slider.value != 0)
+        else if(randomPoint.y < 0 || randomPoint.y > 100 && slider.value != 0)
         {
             timeSelected = false;
         }

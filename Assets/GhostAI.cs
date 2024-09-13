@@ -18,6 +18,8 @@ public class MoveTo : MonoBehaviour
     private Vector3 lastPosition;
     private float timeStationary;
 
+    private bool screamed = false;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -31,11 +33,13 @@ public class MoveTo : MonoBehaviour
         distanceToTarget = Vector3.Distance(player.transform.position, transform.position);
 
         //Debug.Log(distanceToTarget);
-        if (distanceToTarget <= chaseRange)
+        if (!screamed && distanceToTarget <= chaseRange)
         {
+            screamed = true;
             scareManager.timeSelected = false;
             m_AudioSource.PlayOneShot(audioClip);
-            this.gameObject.SetActive(false);
+            Debug.Log("Scream Player");
+            Invoke("NavDisable", 0.5f);
         }
 
         if (transform.position != lastPosition)
@@ -44,16 +48,24 @@ public class MoveTo : MonoBehaviour
             lastPosition = transform.position;
         }
         else
-        {   
+        {
+            
             timeStationary += Time.deltaTime;
             if (timeStationary >= stationaryTimeThreshold)
             {
                 Debug.Log(gameObject.name + " has been stationary for a long time.");
                 scareManager.timeSelected = false;
                 this.gameObject.SetActive(false);
+                timeStationary = 0f;
             }
         }
 
+    }
+
+    void NavDisable()
+    {
+        screamed = false;
+        this.gameObject.SetActive(false);
     }
 
     //private void OnTriggerEnter(Collider other)
